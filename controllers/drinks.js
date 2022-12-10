@@ -1,4 +1,4 @@
-const express = require('express') // bring this in so we can make our router
+const express = require('express'); // bring this in so we can make our router
 const Drinks = require('../models/drinks')
 
 /////
@@ -15,81 +15,65 @@ const router = express.Router(); // router will have all routes attached to it
 //   }
 // })
 
+// INDEX GET /soda -> a list of sodas
 router.get('/', (req, res) => {
   // Get all drinks from mongo and send them back
   Drinks.find({}).then((drinksData) => {
     // res.json(drinks)
+    console.log(drinksData)
     res.render('drinks/index.ejs', { drinksData })
   })
 })
 
+// New Route GET /soda/new -> page with a create form
 router.get('/new', (req, res) => {
   res.render('drinks/new.ejs')
 })
 
-// create route
+// Create Route POST /drinks -> creates a new drink, redirect back to index
 router.post('/', (req, res) => {
   // add username to req.body to track related user
-  req.body.username = req.session.username
-  // create the new fruit
+  // req.body.username = req.session.username
+  // create the new drinks
   Drinks.create(req.body, (err, drinks) => {
-    // redirect the user back to the main drinks page after fruit created
+    // redirect the user back to the main drinks page after drinks created
     res.redirect('/drinks')
   })
 })
 
-router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  // Find the drink and send it to the edit.ejs  to prepopulate the form
-  Drinks.findById(id, (err, foundFruit) => {
-    // res.json(foundFruit)
-    res.render('drinks/edit.ejs', { fruit: foundFruit })
-  })
+// EDIT Route Get /soda/:id/edit -> create form to update soda
+router.get("/:id/edit", (req, res) => {
+  Drinks.findById(req.params.id), (err, foundDrinks)
+  console.log(foundDrinks, "this is the drink we found")
+  res.render('drinks/edit.ejs', { drinks: foundDrinks })
 })
+ 
+// router.put('/:id', (req, res) => {
+//   Drinks.findByIdAndUpdate(
+//     req.params.id,
+//     req.body,
+//     { new: true },
+//     (err, updatedDrinks) => {
+//       console.log(updatedDrinks)
 
-router.put('/:id', (req, res) => {
-  Drinks.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedDrinks) => {
-      console.log(updatedDrinks)
-
-      res.redirect(`/drinks/${req.params.id}`)
-    }
-  )
-})
+//       res.redirect(`/drinks/${req.params.id}`)
+//     }
+//   )
+// })
 
 router.get('/:id', (req, res) => {
-  // Go and get fruit from the database
-  Fruit.findById(req.params.id).then((fruit) => {
-    res.render('drinks/show.ejs', { drinks })
+  // Go and get drinks from the database
+  Drinks.findById(req.params.id).then((drinksData) => {
+    res.render('drinks/show.ejs', { drinksData })
   })
 })
 
-router.delete('/:id', async (req, res) => {
-  // Method 1
-  // Fruit.findByIdAndDelete(req.params.id, (err, deletedFruit) => {
-  //     console.log(err, deletedFruit)
-  //     res.redirect('/fruits')
-  // })
-
-  // // Method 2
-  // Fruit.findByIdAndDelete(req.params.id)
-  // .then((deletedFruit) => {
-  //     console.log(err, deletedFruit)
-  //     res.redirect('/fruits')
-  // })
-  // .catch(err => console.log(err))
-
-  // Method 3 async await
-
-  const deletedDrinks = await Drinks.findByIdAndDelete(req.params.id)
-
-  if (deletedDrinks) {
-    res.redirect('/drinks/')
-  }
-})
+// // Destroy Route Delete /drinks/:id => deletes an individual 
+// router.delete("/drinks/:id", (req, res) => {
+//   Drinks.destroy(req.params.id)
+//   console.log(req.params.id)
+//     res.redirect("/drinks")
+// })
 
 /////////////
 ///// export this router to use in other files

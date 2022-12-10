@@ -10,33 +10,28 @@
 </head>
 
 <body>
-  <main>
-    <div>
-      <article>
-        <h1>
-          Drink: <%= name %>
-        </h1>
-        <h3></h3>
-        <img src="<%=img %>" alt="" />
-        <h3>
-          Type: <%= type %>
-        </h3>
-        <h3>
-          Description: <%= desc %>
-        </h3>
-        <a href="/drinks">
-          <button>Edit</button>
-        </a><br>
-        <a href="/drinks">
-          <button>Delete</button>
-          </form><br>
-          <a href="/drinks">
-            <button>Back</button><br>
-          </a>
-      </article>
-
+  <h2>
+    <%=drinksData.name %>
+  </h2>
+  <div class="drinks-container" id="drinks-container"></div>
+  <div class="drinks">
+    <div class="img-container"></div>
+    <img src="<%=drinksData.img %>" alt="" />
+    <div class="info">
+      <ul>
+        <div class="type" <% const type=drinksData.type %>
+          <% for(let j=0; j < drinksData.length; j++){ %>
+            <li>
+              <%=drinksData.type[j] %>
+            </li>
+            <% } %>
+      </ul>
+      <p>HP: <%=drinksData.abv %>
+      </p>
+      <p>Attack: <%=drinksData.desc %>
+      </p>
     </div>
-  </main>
+  </div>
 </body>
 
 </html>

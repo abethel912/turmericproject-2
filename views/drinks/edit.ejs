@@ -6,22 +6,22 @@
     <%- include("../partials/header.ejs") %>
       <main>
         <div>
-          <form action="/drinks/<%= drinks._name %>?_method=PUT" method="post">
+          <form action="/drinks/<%= drinks._id %>?_method=PUT" method="post">
 
             <fieldset>
-              <legend>Edit a <%= drinks.name %>
+              <legend>Edit a <%= drinksData.name %>
               </legend>
               <label>
-                NAME: <input type="text" name="name" value="<%= drinks.name %>" placeholder="enter a drink name" />
+                NAME: <input type="text" name="name" value="<%= drinksData.name %>" placeholder="enter a drink name" />
               </label>
               <label>
-                IMAGE: <input type="img" name="image link" value="<%= drinks.img %>" placeholder="enter an image" />
+                IMAGE: <input type="img" name="image link" value="<%= drinksData.img %>" placeholder="enter an image" />
               </label>
               <label>
-                DESCRIPTION: <input type="test" name="Description" value="<%=drinks.desc %>" />
+                DESCRIPTION: <input type="test" name="description" value="<%=drinksData.desc %>" />
               </label>
             </fieldset>
-            <input type="submit" value="Update <%= drinks.name%>" />
+            <input type="submit" value="Update <%= drinksData.name%>" />
           </form>
 
         </div>

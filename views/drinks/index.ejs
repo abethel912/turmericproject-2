@@ -7,7 +7,7 @@
     <ul>
       <% for(let i=0; i < drinksData.length; i++){ %>
         <li>
-          The <a href="/drinks/<%=i%>">
+          The <a href="/drinks/<%=drinksData[i]._id%>">
             <%=drinksData[i].name; %>
               <img src="<%=drinksData[i].img %>" alt="" />
               <form>

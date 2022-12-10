@@ -68,13 +68,13 @@ mongoose.connection.on('open', () => {
       abv: '.5%',
       desc: 'Samuel Adams Just the Haze explodes with aroma, delivering hints of grapefruit, tangerine and lime complemented by tropical fruit notes like pineapple, guava and passion fruit.'
     },
-    // {
-    //   name: 'Stella Rosa Peach Non-Alcoholic',
-    //   type: 'Wine',
-    //   img: 'https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/hb7/hc1/13376471334942.png',
-    //   abv: '.5%',
-    //   desc: 'Moscato-based blend infused with natural white and yellow peach flavors. Its a semi-sweet and lightly sparkling wine that will leave a delicate flavor on your palate and nose.'
-    // }
+    {
+      name: 'Stella Rosa Peach Non-Alcoholic',
+      type: 'Wine',
+      img: 'https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/hb7/hc1/13376471334942.png',
+      abv: '.5%',
+      desc: 'Moscato-based blend infused with natural white and yellow peach flavors. Its a semi-sweet and lightly sparkling wine that will leave a delicate flavor on your palate and nose.'
+    }
   ]
   // Delete all drinks
   Drinks.deleteMany({}, (err, data) => {
