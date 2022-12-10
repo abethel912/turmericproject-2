@@ -1,5 +1,5 @@
 //////////////////////////////////////////////
-//////// Fruits Model
+//////// Drinks Model
 ///////////////////////////////////////////////
 const mongoose = require('./connection')
 
@@ -11,11 +11,11 @@ const drinksSchema = new Schema({
   name: String,
   type: String,
   img: String,
-  abv: Number,
+  abv: String,
   desc: String
   
 })
 
-const Drinks = model('drinks', drinksSchema)
+const Drinks = model('Drinks', drinksSchema)
 
 module.exports = Drinks

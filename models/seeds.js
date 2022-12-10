@@ -1,11 +1,8 @@
-require('dotenv').config()
-const mongoose = require('./connection')
 const Drinks = require('./drinks')
-
+const mongoose = require('./connection')
 
 mongoose.connection.on('open', () => {
-
-  // array of starter drinks
+  // define data we want to put in the database
   const drinksData = [
     {
       name: 'Brooklyn Brewery Special Effects Hoppy Amber',
@@ -14,6 +11,7 @@ mongoose.connection.on('open', () => {
       abv: '.5%',
       desc: 'Citrus brew with a slightly bitter taste.'
     },
+
     {
       name: 'Athletic Brewing Company Run Wild IPA',
       type: 'Beer',
@@ -69,15 +67,23 @@ mongoose.connection.on('open', () => {
       img: 'https://www.samueladams.com//app_media/SamAdamsRedux/Just-The-Haze/JustTheHaze_headerBk_final.file',
       abv: '.5%',
       desc: 'Samuel Adams Just the Haze explodes with aroma, delivering hints of grapefruit, tangerine and lime complemented by tropical fruit notes like pineapple, guava and passion fruit.'
-    }
+    },
+    // {
+    //   name: 'Stella Rosa Peach Non-Alcoholic',
+    //   type: 'Wine',
+    //   img: 'https://www.totalwine.com/dynamic/x490,sq/media/sys_master/twmmedia/hb7/hc1/13376471334942.png',
+    //   abv: '.5%',
+    //   desc: 'Moscato-based blend infused with natural white and yellow peach flavors. Its a semi-sweet and lightly sparkling wine that will leave a delicate flavor on your palate and nose.'
+    // }
   ]
-
   // Delete all drinks
-  Drinks.remove({}, (err, data) => {
-    // Seed Starter Fruits
-    Drinks.create(startFruits, (err, data) => {
-      // send created fruits as response to confirm creation
-      res.json(data)
+  Drinks.deleteMany({}, (err, data) => {
+    // Seed Starter Drinks
+    Drinks.create(drinksData, (err, data) => {
+      // send created drinks as response to confirm creation
+      console.log(data, "Created data")
+      console.log(err, "Error here")
+      mongoose.connection.close()
     })
   })
 })

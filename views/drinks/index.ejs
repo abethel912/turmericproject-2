@@ -3,26 +3,23 @@
 <%- include('../partials/head.ejs') %>
 
   <body>
-    <%- include('../partials/header.ejs') %>
-
-
-      <main>
-        <div>
-          <a href="/drinks/new"><button>Create A Drink</button></a>
-          <a href="/user/logout"><button>Logout</button></a>
-          <% for (drink of drinks) { %>
-            <article>
-              <a href="/drinks/<%= drinks._id %>">
-                <h2>
-                  <%= drinks.name %> - <%= drinks.img %>
-                </h2>
-              </a>
-
-            </article>
-
-            <% } %>
-        </div>
-      </main>
+    <h1>NABevs</h1>
+    <ul>
+      <% for(let i=0; i < drinksData.length; i++){ %>
+        <li>
+          The <a href="/drinks/<%=i%>">
+            <%=drinksData[i].name; %>
+              <img src="<%=drinksData[i].img %>" alt="" />
+              <form>
+                <input type="submit" value="DELETE" />
+              </form>
+        </li>
+        <% } %>
+    </ul>
+    <nav>
+      <a href="/drinks/new">Add A New Drink</a>
+    </nav>
   </body>
+
 
 </html>

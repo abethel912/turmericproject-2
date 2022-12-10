@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+
+      <main>
+        <div>
+          <form action="/drinks" method="POST">
+            <fieldset>
+              <legend>New Drink</legend>
+
+              <label>
+                NAME: <input type="text" name="name" placeholder="enter drink name" />
+              </label>
+              <label>
+                IMAGE: <input type="text" name="img" placeholder="image link" />
+              </label>
+              <label>
+                DESCRIPTION: <input type="text" name="desc" placeholder="description" />
+              </label>
+            </fieldset>
+
+            <input type="submit" value="New Fruit" />
+          </form>
+
+        </div>
+      </main>
+  </body>
+
+</html>

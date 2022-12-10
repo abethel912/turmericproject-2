@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+  <body>
+    <%- include("../partials/header.ejs") %>
+      <main>
+        <div>
+          <form action="/drinks/<%= drinks._name %>?_method=PUT" method="post">
+
+            <fieldset>
+              <legend>Edit a <%= drinks.name %>
+              </legend>
+              <label>
+                NAME: <input type="text" name="name" value="<%= drinks.name %>" placeholder="enter a drink name" />
+              </label>
+              <label>
+                IMAGE: <input type="img" name="image link" value="<%= drinks.img %>" placeholder="enter an image" />
+              </label>
+              <label>
+                DESCRIPTION: <input type="test" name="Description" value="<%=drinks.desc %>" />
+              </label>
+            </fieldset>
+            <input type="submit" value="Update <%= drinks.name%>" />
+          </form>
+
+        </div>
+
+      </main>
+
+  </body>
+
+</html>
