@@ -19,7 +19,7 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use('/static',express.static('public'));
 app.use(session({
     secret: process.env.SECRET,
     store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),

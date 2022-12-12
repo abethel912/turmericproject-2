@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/public/skeleton.css">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Show Page</title>
+  <link rel="stylesheet" href="/static/show.css">
 </head>
 
 <body>
@@ -22,12 +21,12 @@
         <div class="type" <% const type=drinksData.type %>
           <% for(let j=0; j < drinksData.length; j++){ %>
             <li>
-              <%=drinksData.type[j] %>
+              
             </li>
             <% } %>
       </ul>
-      <p>ABV: <%=drinksData.abv %>
-      </p>
+      <p><%=drinksData.type %></p>
+      <p>ABV: <%=drinksData.abv %></p>
       <p>DESCRIPTION: <%=drinksData.desc %>
       </p>
     </div>

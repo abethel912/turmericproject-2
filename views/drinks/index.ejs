@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs') %>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Page</title>
+  <link rel="stylesheet" href="/static/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Roboto+Condensed:ital,wght@1,700&display=swap">
+</head>
+  <nav>
+  
+    <div>HOME</div>
+    <div>BEER</div>
+    <div>WINE</div>
+    <h1>NABevs</h1>
+    <div>SPIRITS</div>
+    <div>MOCKTAILS</div>
+    <div>ABOUT</div>
+    
+ 
+ 
+    </nav>
 
   <body>
-    <h1>NABevs</h1>
+    <div class="page-wrapper">
+    <header class="header"></header>
+
+    <div class="content-wrapper">
+
     <ul>
       <% for(let i=0; i < drinksData.length; i++){ %>
         <li>
           <a href="/drinks/<%=drinksData[i]._id%>">
-            <%=drinksData[i].name; %>
-              <img src="<%=drinksData[i].img %>" alt="" />
+            <div class="img-container">
+              <p>A Variety of NABevs for any Celebration Sans Booze.</p>
+              <div class="name"><%=drinksData[i].name; %></div>
+              <img src="<%=drinksData[i].img %>" alt="drink-pic" class="center"/>
+            </div>
               <form action="/drinks/<%=drinksData[i]._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE" />
-              </form>
+              <input type="submit" value="DELETE" class="delete-button" />
+              </form>  
         </li>
         <% } %>
     </ul>
+  <div class="new-drink">
+    <a href="/drinks/new">Add A New Drink</a>
     <nav>
-      <a href="/drinks/new">Add A New Drink</a>
+      </div>
     </nav>
+    <footer class="footer"></footer>
+    </div>
   </body>
 
 
