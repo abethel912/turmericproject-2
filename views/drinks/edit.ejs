@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../partials/head.ejs") %>
 
-  <body>
-    <%- include("../partials/header.ejs") %>
-      <main>
-        <div>
-          <form action="/drinks/<%= drinks._id %>?_method=PUT" method="post">
+<body>
+<%- include("../partials/head.ejs") %>
+  
+    <h1>Form to Update <%= drink.name %>
+    </h1>
+  
+    <form action="/drinks/<%= drink._id %>?_method=PUT" method="post">
 
             <fieldset>
-              <legend>Edit a <%= drinksData.name %>
+              <legend>Edit a <%= drink.name %>
               </legend>
               <label>
-                NAME: <input type="text" name="name" value="<%= drinksData.name %>" placeholder="enter a drink name" />
+                NAME: <input 
+                type="text" 
+                name="name" 
+                value="<%= drink.name %>" 
+                placeholder="enter a drink name" />
               </label>
               <label>
-                IMAGE: <input type="img" name="image link" value="<%= drinksData.img %>" placeholder="enter an image" />
+                IMAGE: <input 
+                type="img" 
+                name="image link" 
+                value="<%= drink.img %>" 
+                placeholder="enter an image" />
               </label>
               <label>
-                DESCRIPTION: <input type="test" name="description" value="<%=drinksData.desc %>" />
+                DESCRIPTION: <input 
+                type="test" 
+                name="description" 
+                value="<%=drink.desc %>" 
+                placeholder= "enter description"
+                />
               </label>
             </fieldset>
-            <input type="submit" value="Update <%= drinksData.name%>" />
+            <input type="submit" value="Update <%= drink.name%>" />
           </form>
 
         </div>

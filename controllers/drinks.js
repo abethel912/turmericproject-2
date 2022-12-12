@@ -41,25 +41,27 @@ router.post('/', (req, res) => {
   })
 })
 
-// EDIT Route Get /soda/:id/edit -> create form to update soda
-router.get("/:id/edit", (req, res) => {
-  Drinks.findById(req.params.id), (err, foundDrinks)
-  console.log(foundDrinks, "this is the drink we found")
-  res.render('drinks/edit.ejs', { drinks: foundDrinks })
+// EDIT Route Get /drinks/:id/edit -> create form to update drinks
+router.get('/:id/edit', (req, res) => {
+  const id = req.params.id
+  // Find the drinks and send it to the edit.ejs  to prepopulate the form
+  Drinks.findById(id, (err, drinksData) => {
+    // res.json(foundDrinks)
+    res.render('drinks/edit.ejs', { drink: drinksData })
+  })
 })
  
-// router.put('/:id', (req, res) => {
-//   Drinks.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     { new: true },
-//     (err, updatedDrinks) => {
-//       console.log(updatedDrinks)
-
-//       res.redirect(`/drinks/${req.params.id}`)
-//     }
-//   )
-// })
+router.put('/:id', (req, res) => {
+  Drinks.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedDrinks) => {
+      console.log(updatedDrinks)
+      res.redirect(`/drinks/${req.params.id}`)
+    }
+  )
+})
 
 router.get('/:id', (req, res) => {
   // Go and get drinks from the database
@@ -68,12 +70,14 @@ router.get('/:id', (req, res) => {
   })
 })
 
-// // Destroy Route Delete /drinks/:id => deletes an individual 
-// router.delete("/drinks/:id", (req, res) => {
-//   Drinks.destroy(req.params.id)
-//   console.log(req.params.id)
-//     res.redirect("/drinks")
-// })
+// Delete route
+
+router.delete('/:id', async (req, res) => {
+  Drinks.findByIdAndDelete(req.params.id, (err, deletedDrinks) => {
+    console.log(err, deletedDrinks)
+    res.redirect('/drinks')
+  })
+    })
 
 /////////////
 ///// export this router to use in other files

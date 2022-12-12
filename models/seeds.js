@@ -77,7 +77,7 @@ mongoose.connection.on('open', () => {
     }
   ]
   // Delete all drinks
-  Drinks.deleteMany({}, (err, data) => {
+  Drinks.deleteMany({}, (err, data) => { })
     // Seed Starter Drinks
     Drinks.create(drinksData, (err, data) => {
       // send created drinks as response to confirm creation
@@ -86,4 +86,4 @@ mongoose.connection.on('open', () => {
       mongoose.connection.close()
     })
   })
-})
+

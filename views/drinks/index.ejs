@@ -7,10 +7,10 @@
     <ul>
       <% for(let i=0; i < drinksData.length; i++){ %>
         <li>
-          The <a href="/drinks/<%=drinksData[i]._id%>">
+          <a href="/drinks/<%=drinksData[i]._id%>">
             <%=drinksData[i].name; %>
               <img src="<%=drinksData[i].img %>" alt="" />
-              <form>
+              <form action="/drinks/<%=drinksData[i]._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE" />
               </form>
         </li>
