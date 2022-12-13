@@ -29,15 +29,14 @@
   <body>
     <div class="page-wrapper">
     <header class="header"></header>
-
     <div class="content-wrapper">
-
+  <p>A Variety of NABevs for any Celebration Sans Booze.</p>
     <ul>
       <% for(let i=0; i < drinksData.length; i++){ %>
         <li>
           <a href="/drinks/<%=drinksData[i]._id%>">
             <div class="img-container">
-              <p>A Variety of NABevs for any Celebration Sans Booze.</p>
+              
               <div class="name"><%=drinksData[i].name; %></div>
               <img src="<%=drinksData[i].img %>" alt="drink-pic" class="center"/>
             </div>
@@ -47,8 +46,7 @@
         </li>
         <% } %>
     </ul>
-  <div class="new-drink">
-    <a href="/drinks/new">Add A New Drink</a>
+  <div class="new-drink" a href="/drinks/new"> <button class= "new">Add A New Drink</button></a>
     <nav>
       </div>
     </nav>
