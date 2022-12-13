@@ -17,11 +17,24 @@ nav {
   justify-content: space-around;
   background-color: #FCC78D;
   position: relative;
-  height: 70px;
-  padding: 3px;
+  background-color: #FCC78D;
   box-sizing: border-box;
   font-family: 'Cormorant', serif;
 }
+
+.page-wrapper{
+  padding: 5px;
+}
+
+/* aside {
+  height: 100%;
+  width: 80px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 40px;
+  background-color: #FBB2B9;
+} */
 
 p {
   display: flex;
@@ -62,8 +75,8 @@ img{
 } 
 
 .img-container{
- padding: 10px;
  top: 10px;
+ margin: auto;
 
 }
 
@@ -100,10 +113,31 @@ a{
 
 .delete-button {
   padding: 10px;
+  border: 5px solid;
+  background-color: white;
 }
 
 .new-drink{
   display: flex;
   justify-content:center;
+  padding: 10px;
 }
 
+footer {
+  background-color: #FCC78D;
+  display: flex;
+  justify-content:center
+  
+}
+
+.new-button {
+    display: flex;
+    margin: auto;
+    justify-content:center;
+    border: 7px solid rgb(148, 192, 236);
+    width: 70px;
+    height: 50px;
+    margin:auto;
+  }
+
+  

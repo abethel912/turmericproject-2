@@ -5,6 +5,14 @@ mongoose.connection.on('open', () => {
   // define data we want to put in the database
   const drinksData = [
     {
+      name: 'Lagunitas Hoppy Refresher',
+      type: 'Beer',
+      img: 'https://lagunitas.com/wp-content/uploads/2021/07/ref-float-794x1024.png',
+      abv: '0%',
+      desc: "Hoppy Refresher is a zippy and zingy highly carbonated dry-hopped sparkling water. We added a pinch of brewer's yeast to biotransformate the hops and pull out terpenes (AKA aroma compounds) of bubblegum, lime, lemon, tangerine, and a bit of pine."
+    },
+
+    {
       name: 'Brooklyn Brewery Special Effects Hoppy Amber',
       type: 'Beer',
       img: 'https://www.liquor.com/thmb/Sh3V6Ah_VcK2iW7JbrhEYkSIyhI=/fit-in/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/beer-12x-828x1024-53368d9cf0984bff823861aaf3f46c5b.jpg',
@@ -193,7 +201,36 @@ mongoose.connection.on('open', () => {
       img: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRAQkTcQkePyeHitcMBp6K8HXAyWwvWab-bdzBO_h1xzCwfQOf3HVea3WIvDJ6kRsbSt2yoQJcOCXrS0afE1lu_OUJ2VftOpQ',
       abv: '0%',
       desc: 'Inspired by the Mediterranean tradition of aperitivo hour, Ghia drinks like an elevated amaro. Founder Melanie Masarin blended Riesling grape juice with a range of herbs and extracts to replicate the complexity of apres-dinner drinks. It’s also available in single-serving spritz form. '
-    }
+    },
+    {
+      name: 'Snickerdoodle Cookie Mocktails',
+      type: 'Mocktail',
+      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2022-09/21/17/asset/b6481d93cd82/sub-buzz-2776-1663782726-19.png?downsize=700%3A%2A&output-quality=auto&output-format=auto',
+      abv: '0%',
+      desc: 'Impress your dinner guests with these Snickerdoodle Cookie Mocktails! For more delicious drinks, be sure to add Slow Cooker Carmel Apple Cider, Gingerbread Hot Cocoa, and Non-Alcoholic Holiday Punch to your holiday spread.'
+    },
+
+    {
+      name: ' Non Alcoholic Apple Cider Sangria',
+      type: 'Mocktail',
+      img: 'https://www.wholesomelicious.com/wp-content/uploads/2019/10/Apple-Cider-Sangria_-897x1024.jpg',
+      abv: '0%',
+      desc: 'Non Alcoholic Apple Cider Sangria is the perfect drink to celebrate fall. Kids and adults can enjoy this drink alike.'
+    },
+    {
+      name: 'Raspberry Mint Limeade',
+      type: 'Mocktail',
+      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2018-07/10/10/asset/buzzfeed-prod-web-01/sub-buzz-29546-1531234378-5.jpg?downsize=600:*&output-format=auto&output-quality=auto',
+      abv: '0%',
+      desc: 'Refreshing, sparkling and red, meaning, honestly, you could have this mocktail during any season and it would be a good idea. Plus, it just requires a few ingredients.'
+    },
+    {
+      name: 'Mango Lemon Margarita Mocktail',
+      type: 'Mocktail',
+      img: 'https://img.buzzfeed.com/buzzfeed-static/static/2018-07/10/12/asset/buzzfeed-prod-web-06/sub-buzz-25731-1531239063-1.jpg?downsize=600:*&output-format=auto&output-quality=auto',
+      abv: '0%',
+      desc: 'Inspired by the Mediterranean tradition of aperitivo hour, Ghia drinks like an elevated amaro. Founder Melanie Masarin blended Riesling grape juice with a range of herbs and extracts to replicate the complexity of apres-dinner drinks. It’s also available in single-serving spritz form. '
+    },
   ]
   // Delete all drinks
   Drinks.deleteMany({}, (err, data) => { })

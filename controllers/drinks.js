@@ -50,14 +50,12 @@ router.get('/:id/edit', (req, res) => {
     res.render('drinks/edit.ejs', { drink: drinksData })
   })
 })
- 
-router.put('/:id', (req, res) => {
-  Drinks.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedDrinks) => {
-      console.log(updatedDrinks)
+
+// Update route
+ router.put('/:id', (req, res) => {
+  Drinks.findByIdAndUpdate(req.params.id,req.body,{ new: true },
+  (err, updatedDrinks) => {
+  console.log(updatedDrinks)
       res.redirect(`/drinks/${req.params.id}`)
     }
   )

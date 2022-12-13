@@ -21,9 +21,6 @@
     <div>SPIRITS</div>
     <div>MOCKTAILS</div>
     <div>ABOUT</div>
-    
- 
- 
     </nav>
 
   <body>
@@ -42,17 +39,34 @@
             </div>
               <form action="/drinks/<%=drinksData[i]._id %>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE" class="delete-button" />
-              </form>  
+              </form> 
         </li>
         <% } %>
     </ul>
-  <div class="new-drink" a href="/drinks/new"> <button class= "new">Add A New Drink</button></a>
-    <nav>
+    
+        <a href="/drinks/new"><button class="new-button">Add A Drink</button></a>
+
+        <nav>
       </div>
     </nav>
-    <footer class="footer"></footer>
     </div>
   </body>
-
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col">
+        <ul>
+          <h4>LINKEDIN</h4>
+          <li><a href="https://www.linkedin.com/in/abethelse/"></a></li>
+          <h4>GITHUB</h4>
+          <li><a href="https://github.com/abethel912"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="'social-links">
+      </div>
+    </div>
+  </div>
+</footer>
 
 </html>
